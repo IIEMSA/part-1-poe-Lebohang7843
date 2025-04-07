@@ -1,0 +1,44 @@
+﻿@model PROJECT1.Models.Venue
+
+@{
+    ViewData["Title"] = "Edit Venue";
+}
+
+<h1>Edit Venue</h1>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="VenueId" />
+
+    <div class="form-group">
+        <label asp-for="VenueName" class="control-label"></label>
+        <input asp-for="VenueName" class="form-control" />
+        <span asp-validation-for="VenueName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="VenueLocation" class="control-label"></label>
+        <input asp-for="VenueLocation" class="form-control" />
+        <span asp-validation-for="VenueLocation" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="VenueCapacity" class="control-label"></label>
+        <input asp-for="VenueCapacity" class="form-control" />
+        <span asp-validation-for="VenueCapacity" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="imageUrl" class="control-label"></label>
+        <input asp-for="imageUrl" class="form-control" />
+        <span asp-validation-for="imageUrl" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

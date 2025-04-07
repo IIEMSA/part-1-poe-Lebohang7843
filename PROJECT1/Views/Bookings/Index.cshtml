@@ -1,0 +1,39 @@
+﻿@model IEnumerable<PROJECT1.Models.Booking>
+
+@{
+    ViewData["Title"] = "Booking Index";
+}
+
+<h1>Booking</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New Booking</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Booking ID</th>
+            <th>Booking Date</th>
+            <th>Event ID</th>
+            <th>Venue ID</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.BookingID</td>
+                <td>@item.BookingDate</td>
+                <td>@item.EventID</td>
+                <td>@item.VenueID</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.BookingID" class="btn btn-warning">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.BookingID" class="btn btn-info">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.BookingID" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
